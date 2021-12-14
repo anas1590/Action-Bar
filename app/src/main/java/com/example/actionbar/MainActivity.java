@@ -29,5 +29,19 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+            case R.id.action_favorite:
+                Toast.makeText(getApplicationContext(),"Added to Favorite", Toast.LENGTH_LONG).show();
+            case R.id.action_tasks:
+                TextView textView = findViewById(R.id.textview);
+                textView.setText("Action task was clicked");
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }
